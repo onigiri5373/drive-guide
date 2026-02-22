@@ -3,6 +3,10 @@ import { Hono } from 'hono';
 import { cors } from 'hono/cors';
 import narrate from '../src/routes/narrate.js';
 
+export const config = {
+  runtime: 'edge',
+};
+
 const app = new Hono().basePath('/api');
 
 // CORS - allow Vercel frontend and localhost
