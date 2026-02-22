@@ -42,16 +42,29 @@ export function startMockGeolocation(callback: WatchCallback) {
     const point = TOKYO_DRIVE_ROUTE[currentIndex % TOKYO_DRIVE_ROUTE.length];
     const [lat, lon, heading, speed] = point;
 
-    const position: GeolocationPosition = {
-      coords: {
-        latitude: lat,
-        longitude: lon,
-        heading: heading,
-        speed: speed,
-        accuracy: 10,
-        altitude: null,
-        altitudeAccuracy: null,
+    const coords = {
+      latitude: lat,
+      longitude: lon,
+      heading: heading,
+      speed: speed,
+      accuracy: 10,
+      altitude: null,
+      altitudeAccuracy: null,
+      toJSON() {
+        return {
+          latitude: this.latitude,
+          longitude: this.longitude,
+          heading: this.heading,
+          speed: this.speed,
+          accuracy: this.accuracy,
+          altitude: this.altitude,
+          altitudeAccuracy: this.altitudeAccuracy,
+        };
       },
+    };
+
+    const position: GeolocationPosition = {
+      coords,
       timestamp: Date.now(),
     };
 

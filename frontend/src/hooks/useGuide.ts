@@ -1,4 +1,4 @@
-import { useEffect, useRef, useCallback } from 'react';
+import { useEffect, useCallback } from 'react';
 import { useAppStore } from '../store/useAppStore';
 import { calculateBearing, getRelativeDirection } from '../lib/bearing';
 import { haversineDistance } from '../lib/geoUtils';
@@ -17,8 +17,6 @@ export function useGuide() {
   const markPOINarrated = useAppStore((s) => s.markPOINarrated);
   const isPoiNarrated = useAppStore((s) => s.isPoiNarrated);
   const cleanExpiredNarrated = useAppStore((s) => s.cleanExpiredNarrated);
-
-  const abortRef = useRef<AbortController | null>(null);
 
   // Narrate a specific POI
   const narratePOI = useCallback(
