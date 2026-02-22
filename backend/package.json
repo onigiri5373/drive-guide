@@ -1,0 +1,22 @@
+{
+  "name": "drive-guide-backend",
+  "version": "1.0.0",
+  "description": "Drive Guide API server",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js"
+  },
+  "dependencies": {
+    "@google/generative-ai": "^0.24.1",
+    "@hono/node-server": "^1.19.9",
+    "dotenv": "^17.3.1",
+    "hono": "^4.12.1"
+  },
+  "devDependencies": {
+    "@types/node": "^25.3.0",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3"
+  }
+}

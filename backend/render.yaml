@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: drive-guide-api
+    runtime: node
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: PORT
+        value: 3001
+      - key: ALLOWED_ORIGINS
+        sync: false
